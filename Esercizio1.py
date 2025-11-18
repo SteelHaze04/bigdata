@@ -5,12 +5,17 @@ def aggiungi(id, temp):
     
     
 def media_temp():
+    somma = 0
+    conta = 0
+    for l in letture:
+        somma += l["temp"]
+        conta += 1
     if not letture:
         return None
-    return sum(x["temp"] for x in letture) / len(letture)
+    return somma / conta
     
 
-for _id, _temp in [(1, 31.1), (2, 29.8), (3, 30.5), (4, 32.0), (5, 28.9), (6, 30.2)]:
-    aggiungi(_id, _temp)
+for id, temp in [(1, 31.1), (2, 29.8), (3, 30.5), (4, 32.0), (5, 28.9), (6, 30.2)]:
+    aggiungi(id, temp)
 
 print(media_temp())
